@@ -1,0 +1,137 @@
+*{ 
+    margin:0px; 
+    padding: 0;
+}
+body{
+    background: rgb(7,7,50); /* Cor de fundo principal */
+}
+.container-main {
+    /* Container principal do topo da página */
+    background-color: tomato;
+    height: 100px;
+    width: 100%;
+    display:flex;
+    position:fixed;
+    top:0px;
+    border-style:solid;
+    border-color:firebrick;
+    /* o display flex permite flexibilizar o formato do container */
+    justify-content: center;
+    /* justify deixa o container centralizado VERTICALMENTE */
+    /* fLoat permite posicionar um objeto/conteúdo */
+}
+.container-nav-div{
+    /* Divisor posicionador do nav */
+    display:flex;
+    width: 75%;
+    height: 100%;
+    justify-content:space-around;
+    background-color: rgba(255, 99, 71, 0);
+}
+#location {
+    /* Div da localização da loja */
+    background-color:rgba(176, 224, 230, 0.5);
+    width:30%;
+    height:100%;
+    margin-left:0px;
+    text-align:center;
+}
+#numbers {
+    /* Div do número da loja */
+    background-color: rgba(176, 224, 230, 0.5);
+    width: 30%;
+    height:100%;
+    margin-left: auto;
+    margin-right: 0px;
+    text-align:center;
+}
+.div-title{
+    /* Estilo dos títulos das divs */
+    background:transparent;
+    margin:5px 15px;
+}
+.page-main-title{
+    /* Nome principal da loja */
+    display:flex;
+    justify-content:space-around;
+    margin: 150px auto 50px auto;
+    width:fit-content;
+    height: 75px;
+    background: green;
+    border-style:solid;
+    border-color: darkseagreen;
+    font-size:x-large;
+    align-items:center;
+}
+.section-main{
+    /* Sessão principal da página */
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+    height:800px;
+    background: transparent;
+}
+.section-info-box{
+    /* Caixa parente de informações */
+    background: darkcyan;
+    display:table-row;
+    justify-content:space-around;
+    width:700px;
+    height:425px;
+}
+.info-box-1{
+    /* Primeira caixa de informações */
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:32%;
+    margin: 1%;
+    background: powderblue;
+}
+.info-box-2{
+    /* Segunda caixa de informações */
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:32%;
+    margin: 1%;
+    background: powderblue;
+}
+.info-box-3{
+    /* Terceira caixa de informações */
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:32%;
+    margin: 1%;
+    background: powderblue;
+}
+.box-text{
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:80%;
+    margin: 0px 1%;
+    background:white;
+}
+#contact-links {
+    font-size:25px;
+}
+#contact-links img{
+    float:left;
+    
+}
+.img-div{
+    /* Div da imagem da loja */
+    display:flex;
+    justify-content:space-around;
+    width:700px;
+    height:700px;
+    background: transparent;
+    border-style:solid;
+    border-color: transparent;
+}
+.img-div img{
+    border-style:solid;
+    border-color:white;
+}
