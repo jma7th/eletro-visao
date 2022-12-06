@@ -143,8 +143,8 @@
         <script>
             function arrayTabela(tabela) {
             var tabelaRef = document.getElementById(tabela);
-            var rowCount = $("#"+tabelaRef.id+"tr").length;
-            var colCount = $("#"+tabelaRef.id+"tr th").length;
+            var rowCount = tabelaRef.rows.length;
+            var colCount = tabelaRef.rows[0].cells.length
             var arrayCell = [];
             var insideArray = [];
     
