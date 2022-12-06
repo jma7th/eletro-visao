@@ -1,0 +1,159 @@
+*{ 
+    margin:0px; 
+    padding: 0;
+}
+body{
+    background: linear-gradient(45deg, rgba(0, 48, 48, 1) 25%,  rgb(18, 66, 98) 75%); /* Cor de fundo principal */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin-left: 12px;
+}
+
+.divCadastro table tr td {
+    padding: 2px;
+}
+
+.campoCadastro {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 48, 48, 1);
+    border: 0px;
+    border-color: rgba(0, 48, 48, 1);
+}
+.container-main {
+    /* Container principal do topo da página */
+    background: linear-gradient(45deg,  rgb(168, 177, 207) 35%,  rgb(3, 91, 150) 65%);
+    height: 24px;
+    width: 100%;
+    display:flex;
+    position:fixed;
+    top:0px;
+    border-style:solid;
+    border-color:rgba(43, 16, 104, 0.5);
+    /* o display flex permite flexibilizar o formato do container */
+    justify-content: center;
+    /* justify deixa o container centralizado VERTICALMENTE */
+    font-family:Verdana, sans-serif;
+    /* fLoat permite posicionar um objeto/conteúdo */
+}
+.container-nav-div{
+    /* Divisor posicionador do nav */
+    display:flex;
+    width: 75%;
+    height: 100%;
+    justify-content:space-around;
+    font-family:Verdana, sans-serif;
+    background-color: rgba(255, 99, 71, 0);
+}
+#buttons {
+    /* Div da localização da loja */
+    background-color:rgba(18, 85, 231, 0.945);
+    width:80%;
+    height:100%;
+    margin-left:0px;
+    text-align:center;
+    border-style:none solid none solid;
+    border-color:rgba(43, 16, 104, 0.5);
+    font-family:Verdana, sans-serif;
+}
+#numbers {
+    /* Div do número da loja */
+    background-color: rgba(176, 224, 230, 0.5);
+    width: 30%;
+    height:100%;
+    margin-left: auto;
+    margin-right: 0px;
+    text-align:center;
+    border-style:none solid none solid;
+    border-color:firebrick;
+    font-family:Verdana, sans-serif;
+}
+.div-title{
+    /* Estilo dos títulos das divs */
+    background:transparent;
+    margin:5px 15px;
+}
+.page-main-title{
+    /* Nome principal da loja */
+    display:flex;
+    justify-content:space-around;
+    margin: 150px auto 50px auto;
+    width:fit-content;
+    height: 75px;
+    background: linear-gradient(45deg,  rgb(121, 89, 11) 5%,  rgb(217, 165, 33) 95%) ;
+    border-style:solid;
+    border-color: darkseagreen;
+    font-size:x-large;
+    font-style:italic;
+    font-family:"arial narrow";
+    align-items:center;
+}
+.section-main{
+    /* Sessão principal da página */
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+    height:800px;
+    background: transparent;
+    font-family:Verdana, sans-serif;
+}
+.section-info-box{
+    /* Caixa parente de informações */
+    background: darkcyan;
+    display:table-row;
+    justify-content:space-around;
+    width:700px;
+    height:475px;
+    font-family:Verdana, sans-serif;
+}
+.info-box-1{
+    /* Primeira caixa de informações */
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:250px;
+    margin: 1%;
+    background: rgb(140, 209, 218);
+    font-family:Verdana, sans-serif;
+}
+.info-box-3{
+    /* Terceira caixa de informações */
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:205px;
+    margin: 1%;
+    background: rgb(140, 209, 218);
+    font-family:Verdana, sans-serif;
+}
+.box-text{
+    display:table;
+    justify-content:start;
+    width:98%;
+    height:75%;
+    margin: 0px 1%;
+    background:rgba(255, 255, 255, 0.323);
+    font-family:Verdana, sans-serif;
+}
+#contact-links {
+    font-size:25px;
+    font-family:Verdana, sans-serif;
+}
+#contact-links img{
+    float:left;
+    
+}
+.img-div{
+    /* Div da imagem da loja */
+    display:flex;
+    justify-content:space-around;
+    width:700px;
+    height:700px;
+    background: transparent;
+    border-style:solid;
+    border-color: transparent;
+    font-family:Verdana, sans-serif;
+}
+.img-div img{
+    border-style:solid;
+    border-color:white;
+}

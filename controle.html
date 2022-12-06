@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <!--Título do site-->
+        <title>Controle de Entrada e Saída</title> 
+        <link href="control_style.css" rel="stylesheet">
+
+        <!-- Coisas a fazer -->
+        <!--
+        - Númerar O.S. - ok
+        - Campo Orçamento
+        - Campo Status Atual
+        - Barra de Pesquisa
+        - Botão Baixar CSV
+        - salvar CSV em servidor?
+        - Colocar funções em paginas diferentes
+        -->
+
+        <!-- Source -->
+        <script src="./src/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/DrPaulBrewer/html5csv/7f39da16/html5csv.js"></script>
+
+        <!-- Funções -->
+        <script>
+            function resetarCampos() {            
+                $("#campoClienteNome").val("");
+                $("#campoClienteEndereco").val("");
+                $("#campoClienteCEP").val("");
+                $("#campoClienteTelefone").val("");
+                $("#campoClienteCelular").val("");
+                $("#campoAparelhoNome").val("");
+                $("#campoAparelhoModelo").val("");
+                $("#campoAparelhoMarca").val("");
+                $("#campoAparelhoSerie").val("");
+                $("#campoAparelhoDefeito").val("");
+                $("#campoAparelhoAparencia").val("");
+                $("#campoOrdemOrcamento").val("");
+                $("#campoOrdemOrcamentoPago").val("");
+                $("#campoOrdemStatus").val("0");      
+                $("#campoOrdemObs").val("");              
+            }
+        </script>    
+
+        <!-- Relógio -->
+        <script>
+            function ligarRelogio() {
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                h = contarRelogio(h);
+                m = contarRelogio(m);
+                s = contarRelogio(s);
+                document.getElementById('relogio').innerHTML =  h + ":" + m + ":" + s;
+                setTimeout(ligarRelogio, 1000);
+                }
+
+            function contarRelogio(i) {
+                if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                return i;
+                }
+        </script>
+
+        <!-- Ao ligar a página -->
+        <script>
+            $(window).on('load', function() { ligarRelogio();
+                CSV.begin("local/eletroVisao").table(document.getElementById("tabelaDados").id,{header:1}).go();
+            })
+        </script>
+
+        <!-- Adicionar Tabela -->
+        <script>
+            function adicionarLinha(tabela,coluna) {
+                
+                // Pegar referência da tabela
+                let tabelaRef = document.getElementById(tabela);
+
+                // Inserir nova coluna na tabela
+                let novaColuna = tabelaRef.insertRow(coluna);
+
+                // Inserir novas células na tabela
+                let novaCelula0 = novaColuna.insertCell(0);
+                let novaCelula1 = novaColuna.insertCell(1);
+                let novaCelula2 = novaColuna.insertCell(2);
+                let novaCelula3 = novaColuna.insertCell(3);
+                let novaCelula4 = novaColuna.insertCell(4);
+                let novaCelula5 = novaColuna.insertCell(5);
+                let novaCelula6 = novaColuna.insertCell(6);
+                let novaCelula7 = novaColuna.insertCell(7);
+                let novaCelula8 = novaColuna.insertCell(8);
+                let novaCelula9 = novaColuna.insertCell(9);
+                let novaCelula10 = novaColuna.insertCell(10);
+                let novaCelula11 = novaColuna.insertCell(11);
+                let novaCelula12 = novaColuna.insertCell(12);
+                let novaCelula13 = novaColuna.insertCell(13);
+                let novaCelula14 = novaColuna.insertCell(14);
+                let novaCelula15 = novaColuna.insertCell(15);
+
+                // Criar um nó de texto
+                let novoTexto0 = document.createTextNode($("#"+tabelaRef.id+" tr").length-1);
+                let novoTexto1 = document.createTextNode(document.getElementById('campoClienteNome').value);
+                let novoTexto2 = document.createTextNode(document.getElementById('campoClienteEndereco').value);
+                let novoTexto3 = document.createTextNode(document.getElementById('campoClienteCEP').value);
+                let novoTexto4 = document.createTextNode(document.getElementById('campoClienteTelefone').value);
+                let novoTexto5 = document.createTextNode(document.getElementById('campoClienteCelular').value);
+                let novoTexto6 = document.createTextNode(document.getElementById('campoAparelhoNome').value);
+                let novoTexto7 = document.createTextNode(document.getElementById('campoAparelhoModelo').value);
+                let novoTexto8 = document.createTextNode(document.getElementById('campoAparelhoMarca').value);
+                let novoTexto9 = document.createTextNode(document.getElementById('campoAparelhoSerie').value);
+                let novoTexto10 = document.createTextNode(document.getElementById('campoAparelhoDefeito').value);
+                let novoTexto11 = document.createTextNode(document.getElementById('campoAparelhoAparencia').value);
+                let novoTexto12 = document.createTextNode(document.getElementById('campoOrdemOrcamento').value);
+                let novoTexto13 = document.createTextNode(document.getElementById('campoOrdemOrcamentoPago').value);
+                let novoTexto14 = document.createTextNode(document.getElementById('campoOrdemStatus').options[document.getElementById('campoOrdemStatus').selectedIndex].text);
+                let novoTexto15 = document.createTextNode(document.getElementById('campoOrdemObs').value);
+                
+                // Adicionar o nó de texto nas células
+                novaCelula0.appendChild(novoTexto0);
+                novaCelula1.appendChild(novoTexto1);
+                novaCelula2.appendChild(novoTexto2);
+                novaCelula3.appendChild(novoTexto3);
+                novaCelula4.appendChild(novoTexto4);
+                novaCelula5.appendChild(novoTexto5);
+                novaCelula6.appendChild(novoTexto6);
+                novaCelula7.appendChild(novoTexto7);
+                novaCelula8.appendChild(novoTexto8);
+                novaCelula9.appendChild(novoTexto9);
+                novaCelula10.appendChild(novoTexto10);
+                novaCelula11.appendChild(novoTexto11);
+                novaCelula12.appendChild(novoTexto12);
+                novaCelula13.appendChild(novoTexto13);
+                novaCelula14.appendChild(novoTexto14);
+                novaCelula15.appendChild(novoTexto15);
+
+                // Resetar os campos
+                resetarCampos();
+                salvarTabela(tabela);
+            }
+        </script>
+
+        <!-- Funções pra tabela -->
+        <script>
+            function arrayTabela(tabela) {
+            var tabelaRef = document.getElementById(tabela);
+            var rowCount = $("#"+tabelaRef.id+"tr").length;
+            var colCount = $("#"+tabelaRef.id+"tr th").length;
+            var arrayCell = [];
+            var insideArray = [];
+    
+            for (var i = 0; i < rowCount; i++)
+                {
+                var currentCell = tabelaRef.rows.item(i).cells
+                var lengthCell = currentCell.length;
+                for(var j = 0; j < lengthCell; j++)
+                    {
+                    var valueCell = currentCell.item(j).innerHTML;
+                    insideArray.push(valueCell);    
+                    }
+                arrayCell.push(insideArray);
+                insideArray = [];
+                }
+            return (arrayCell);        
+            }
+        </script>   
+
+        <!-- HTML5CSV -->
+        <script>
+            function salvarTabela(tabela) {
+                tabelaRef = document.getElementById(tabela);
+                let tabelaCSV = "";
+                CSV.begin(arrayTabela("tabelaDados")).table(tabelaRef.id,{header:1}).save("local/eletroVisao").go();
+            }
+        </script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="container-main">
+                <div class="container-nav-div">
+                    <span id="buttons">
+                        Cadastro e Controle de Aparelhos - Eletrônica Visão
+                    </span> <!--Para fazer um navegador no topo da página, utilize tag header e nav-->
+                </div>
+            </nav>
+        </header>
+        <br>
+        <br>
+        <br>
+        <nav>
+            <span>
+                <div class="divCadastro">
+                    <p id="relogio">00:00:00</p>
+                        <table>
+                            <th style="text-align:left">
+                                Cadastrar Cliente
+                            </th>
+                            <tr>
+                                <td>
+                                    <label for="campoClienteNome">Nome</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoClienteNome" name="campoClienteNome" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoClienteEndereco">Endereço</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoClienteEndereco" name="campoClienteEndereco" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoClienteCEP">CEP</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoClienteCEP" name="campoClienteCEP" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoClienteTelefone">Telefone</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoClienteTelefone" name="campoClienteTelefone" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoClienteCelular">Celular</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoClienteCelular" name="campoClienteCelular" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <th>
+                                Cadastrar Aparelho
+                            </th>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoNome">Aparelho</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoNome" name="campoAparelhoNome" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoModelo">Modelo</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoModelo" name="campoAparelhoModelo" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoMarca">Marca</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoMarca" name="campoAparelhoMarca" class="campoCadastro" size="32"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoSerie">Número de Série</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoSerie" name="campoAparelhoSerie" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoDefeito">Defeito</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoDefeito" name="campoAparelhoDefeito" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoAparelhoAparencia">Aparência</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoAparelhoAparencia" name="campoAparelhoAparencia" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <th style="text-align:left">
+                                Ordem de Serviço
+                            </th>
+                            <tr>
+                                <td>
+                                    <label for="campoOrdemOrcamento">Valor do Orçamento</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoOrdemOrcamento" name="campoAparelhoOrcamento" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoOrdemOrcamentoPago">Valor Pago</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="campoOrdemOrcamentoPago" name="campoOrdemOrcamentoPago" class="campoCadastro" size="32">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoOrdemStatus">Status do Aparelho</label>
+                                </td>
+                                <td>
+                                    <select id="campoOrdemStatus" name="campoOrdemStatus" class="campoCadastro">
+                                        <option value=0>Em Análise</option>
+                                        <option value=2>Orçamento Pronto</option>
+                                        <option value=3>Autorizado</option>
+                                        <option value=4>Aparelho Pronto</option>
+                                        <option value=5>Conserto Finalizado</option>
+                                        <option value=6>Não possui peças</option>
+                                        <option value=7>Não aprovado</option>
+                                        <option value=7>Retirado sem conserto</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="campoOrdemObs">Observações</label>
+                                </td>
+                                <td>
+                                    <textarea id="campoOrdemObs" rows="3" cols="34" class="campoCadastro" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; resize:none"></textarea>
+                                </td>
+                            </tr>
+
+                        </table>
+                    <input type="button" value="Cadastrar" id="botaoCadastrar" name="botaoCadastrar" class="campoCadastro" onclick="adicionarLinha('tabelaDados',-1);">
+                    <input type="button" value="Limpar" id="botaoLimparCampos" name="botaoLimparCampos" class="campoCadastro" onclick="resetarCampos();">
+                </div>
+                <div>
+                    <table id="tabelaDados">
+                        <th>O.S.</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>CEP</th>
+                        <th>Telefone</th>
+                        <th>Celular</th>
+                        <th>Aparelho</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Número de Série</th>
+                        <th>Defeito</th>
+                        <th>Aparência</th>
+                        <th>Orçamento</th>
+                        <th>Status</th>
+                        <th>Observações</th>
+                    </table>
+                </div>                 
+            </span>
+        </nav>
+    </body>
+</html>
