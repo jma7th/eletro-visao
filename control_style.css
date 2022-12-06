@@ -11,13 +11,36 @@ body{
 
 .divCadastro table tr td {
     padding: 2px;
+    background-color:rgba(57, 215, 186, 0.162);
+    
 }
-
+#relogio {
+    background-color:rgba(57,215,186,0.162);
+    width:fit-content;
+    font-size:x-large;
+    margin-left:50%;
+    padding-left:5px;
+    padding-right:5px;
+}
+#tableCadastro {
+    background-color:rgba(40, 40, 40, 0.5);
+}
 .campoCadastro {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgba(0, 48, 48, 1);
     border: 0px;
     border-color: rgba(0, 48, 48, 1);
+}
+#botaoCadastrar {
+    padding-left:5px;
+    padding-right:5px;
+}
+#botaoLimparCampos {
+    padding-left:5px;
+    padding-right:5px;
+}
+#tabelaDados {
+    background-color:rgba(40, 40, 40, 0.5);
 }
 .container-main {
     /* Container principal do topo da página */
