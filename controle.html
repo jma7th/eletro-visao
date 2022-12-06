@@ -162,6 +162,31 @@
                 }
             return (arrayCell);        
             }
+
+            
+            function filtrarTabela() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("campoFiltro");
+                filter = input.value;
+                table = document.getElementById("tabelaDados");
+                tr = table.getElementsByTagName("tr");
+                col = $("#opcoesFiltro").val();
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[col];
+                    if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                    }
+                }
+            }
+
         </script>   
 
         <!-- HTML5CSV -->
@@ -182,7 +207,7 @@
                 var ss = String(today.getSeconds()).padStart(2, '0');
    
                 var today = dd + '_' + mm + '_' + yyyy + '_' + hh + '_' + min + '_' + ss;
-                CSV.begin("local/eletroVisao").download("RelatorioEfetivometro_"+n+"_"+today+".csv").go();
+                CSV.begin("local/eletroVisao").download("RelatorioEletroVisao_"+"_"+today+".csv").go();
             }
         </script>
 
@@ -348,6 +373,24 @@
                     <input type="button" value="Cadastrar" id="botaoCadastrar" name="botaoCadastrar" class="campoCadastro" onclick="adicionarLinha('tabelaDados',-1);">
                     <input type="button" value="Limpar" id="botaoLimparCampos" name="botaoLimparCampos" class="campoCadastro" onclick="resetarCampos();">
                     <input type="button" value="Baixar" id="botaoBaixar" name="botaoBaixar" class="campoCadastro" onclick="baixarCSV();">
+                    <input type="text" id="campoFiltro" name="campoFiltro" class="campoCadastro" onkeyup="filtrarTabela()">
+                    <select id="opcoesFiltro" class="campoCadastro">
+                        <option value=0>O.S.</option>
+                        <option value=1>Nome</option>
+                        <option value=2>Endereço</option>
+                        <option value=3>CEP</option>
+                        <option value=4>Telefone</option>
+                        <option value=5>Celular</option>
+                        <option value=6>Aparelho</option>
+                        <option value=7>Modelo</option>
+                        <option value=8>Marca</option>
+                        <option value=9>Número de Série</option>
+                        <option value=10>Defeito</option>
+                        <option value=11>Aparência</option>
+                        <option value=12>Orçamento</option>
+                        <option value=13>Status</option>
+                        <option value=14>Observações</option>
+                    </select>
                 </div>
                 <div>
                     <table id="tabelaDados">
