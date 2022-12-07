@@ -208,6 +208,11 @@
                 var today = dd + '_' + mm + '_' + yyyy + '_' + hh + '_' + min + '_' + ss;
                 CSV.begin("local/eletroVisao").download("RelatorioEletroVisao_"+"_"+today+".csv").go();
             }
+
+            function editarTabela(tabela) {
+                let tabelaRef = document.getElementById("tabelaDados");
+                    tabelaRef.contenteditable = true;
+            }
         </script>
 
     </head>
@@ -375,6 +380,7 @@
                     <input type="button" value="Baixar" id="botaoBaixar" name="botaoBaixar" class="campoCadastro" onclick="baixarCSV();">
                     
                     <input type='file' id='choose' onClick="salvarTabela('tabelaDados');" />
+                    <input type="button" value="Editar" id="botaoEditar" name="botaoEditar" class="campoCadastro" onClick="editarTabela('tabelaDados');">
                     <input type="button" value="Salvar" id="botaoImportar" name="botaoImportar" class="campoCadastro" onClick="salvarTabela('tabelaDados');">
                     <br>
                     Pesquisar: 

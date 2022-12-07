@@ -22,6 +22,7 @@ body{
     padding-left:5px;
     padding-right:5px;
 }
+
 #tableCadastro {
     background-color:rgba(40, 40, 40, 0.5);
 }
@@ -41,6 +42,7 @@ body{
 }
 #tabelaDados {
     background-color:rgba(40, 40, 40, 0.5);
+    border-spacing: 4px;
 }
 .container-main {
     /* Container principal do topo da página */
