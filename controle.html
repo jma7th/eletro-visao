@@ -186,7 +186,6 @@
                     }
                 }
             }
-
         </script>   
 
         <!-- HTML5CSV -->
@@ -374,6 +373,11 @@
                     <input type="button" value="Cadastrar" id="botaoCadastrar" name="botaoCadastrar" class="campoCadastro" onclick="adicionarLinha('tabelaDados',-1);">
                     <input type="button" value="Limpar" id="botaoLimparCampos" name="botaoLimparCampos" class="campoCadastro" onclick="resetarCampos();">
                     <input type="button" value="Baixar" id="botaoBaixar" name="botaoBaixar" class="campoCadastro" onclick="baixarCSV();">
+                    
+                    <input type='file' id='choose' onClick="salvarTabela('tabelaDados');" />
+                    <input type="button" value="Salvar" id="botaoImportar" name="botaoImportar" class="campoCadastro" onClick="salvarTabela('tabelaDados');">
+                    <br>
+                    Pesquisar: 
                     <input type="text" id="campoFiltro" name="campoFiltro" class="campoCadastro" onkeyup="filtrarTabela()">
                     <select id="opcoesFiltro" class="campoCadastro">
                         <option value=0>O.S.</option>
@@ -414,5 +418,8 @@
                 </div>                 
             </span>
         </nav>
+        <script>
+            CSV.begin('#choose').table(document.getElementById("tabelaDados").id,{header:1}).go();
+        </script>
     </body>
 </html>
