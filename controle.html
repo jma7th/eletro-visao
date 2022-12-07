@@ -209,9 +209,19 @@
                 CSV.begin("local/eletroVisao").download("RelatorioEletroVisao_"+"_"+today+".csv").go();
             }
 
-            function editarTabela(tabela) {
+            function editarTabela() {
                 let tabelaRef = document.getElementById("tabelaDados");
-                    tabelaRef.contenteditable = true;
+                let botaoRef = document.getElementById("botaoEditar");
+                if (tabelaRef.contentEditable == "false") {
+                    tabelaRef.setAttribute("contentEditable","true") 
+                    botaoRef.value = "Editando"
+                    } else {
+                    tabelaRef.setAttribute("contentEditable","false") 
+                    botaoRef.value = "Editar"
+                }
+                
+                    
+                
             }
         </script>
 
@@ -380,7 +390,7 @@
                     <input type="button" value="Baixar" id="botaoBaixar" name="botaoBaixar" class="campoCadastro" onclick="baixarCSV();">
                     
                     <input type='file' id='choose' onClick="salvarTabela('tabelaDados');" />
-                    <input type="button" value="Editar" id="botaoEditar" name="botaoEditar" class="campoCadastro" onClick="editarTabela('tabelaDados');">
+                    <input type="button" value="Editar" id="botaoEditar" name="botaoEditar" class="campoCadastro" onClick="editarTabela();">
                     <input type="button" value="Salvar" id="botaoImportar" name="botaoImportar" class="campoCadastro" onClick="salvarTabela('tabelaDados');">
                     <br>
                     Pesquisar: 
@@ -404,7 +414,7 @@
                     </select>
                 </div>
                 <div>
-                    <table id="tabelaDados">
+                    <table id="tabelaDados" contenteditable="false">
                         <th>O.S.</th>
                         <th>Nome</th>
                         <th>Endereço</th>
