@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrônica Visão - Ordem de Serviço</title>
+    <script>
+        function displayHashNumber() {
+            const hash = window.location.hash.substring(1);
+            const number = parseInt(hash, 10);
+            if (!isNaN(number)) {
+                document.getElementById('number').textContent = number;
+            } else {
+                document.getElementById('number').textContent = 'Invalid number';
+            }
+        }
+
+        window.addEventListener('hashchange', displayHashNumber);
+        window.addEventListener('load', displayHashNumber);
+    </script>
+</head>
+<body>
+    <h1>Eletrônica Visão</h1>
+    <a>Ordem de Serviço nº</a>
+    <b id="number"> </b>
+    <a>gerada com sucesso.</a>
+</body>
+</html>
